@@ -82,7 +82,7 @@ model.load_state_dict(torch.load(args.weight_path))
 
 p = Projector(model, args.classes)
 
-for loader, title in zip([trainloader, testloader], ['Training ', 'Validation ']):
+for loader, title in zip([trainloader, testloader], ['Training', 'Validation']):
     ret = p.plot(loader)
 
     fig, ax = plt.subplots(figsize=(7,7), subplot_kw={'aspect':1})
@@ -96,5 +96,5 @@ for loader, title in zip([trainloader, testloader], ['Training ', 'Validation ']
     lim = max(abs(xmin), abs(ymin), abs(xmax), abs(ymax))
     ax.set_xlim(xmin=-lim, xmax=lim)
     ax.set_ylim(ymin=-lim, ymax=lim)
-    ax.set_title(title + ('w/ LS' if 'smooth' in args.weight_path else 'w/o LS'))
+    ax.set_title(title + (' w/ LS' if 'smooth' in args.weight_path else ' w/o LS'))
     plt.savefig(args.img_name + '_' + title + '.png')
